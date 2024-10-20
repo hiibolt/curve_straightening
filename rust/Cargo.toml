@@ -1,0 +1,15 @@
+[package]
+name = "todo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[build]
+rustflags = ["-C", "target-cpu=native", "-C", "link-arg=-fuse-ld=lld"]
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+strip = "symbols"
